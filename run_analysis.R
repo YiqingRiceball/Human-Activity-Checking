@@ -2,13 +2,13 @@
 # 1. Merges the training and the test sets to create one data set
 library(dplyr)
 # Load test data
-setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/UCI HAR Dataset/test")
+setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject/UCI HAR Dataset/test")
 test_data<-read.table("X_test.txt")
 test_label<-read.table("y_test.txt")
 test_subject<-read.table("subject_test.txt")
 
 # Load train data
-setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/UCI HAR Dataset/train")
+setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject/UCI HAR Dataset/train")
 train_data<-read.table("X_train.txt")
 train_label<-read.table("y_train.txt")
 train_subject<-read.table("subject_train.txt")
@@ -29,7 +29,7 @@ complete<-rbind(test_data,train_data)
 # 2 Extracts only the measurements on the mean and standard deviation for each measurement
 
 # Find features measures means and sd
-setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/UCI HAR Dataset")
+setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject/UCI HAR Dataset")
 features<-read.table("features.txt",colClasses="character")
 
 # Assign column names
@@ -103,6 +103,6 @@ newdata<-arrange(newdata,subject,activity)
 
 # Output the data
 setwd("/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject")
-write.table(newdata,file="/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject/activitychecking.txt",col.names=TRUE,row.names=FALSE)
+write.table(newdata,file="/Users/defaultuser/Desktop/Getting and Cleaning Data/courseproject/activity_checking.txt",row.name=FALSE)
 
 
